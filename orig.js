@@ -32,9 +32,7 @@ const getSleepHours = (day) => {
 }
 //console.log(getSleepHours('friday'));
 
-/* 2. Get the total sleep hours that you actually slept
-      Get the ideal sleep hours that you prefer
-      Calculate the sleep debt, if any. */
+// 2. Get the total sleep hours that you actually slept
 const getActualSleepHours = () => //no "{}" to make an implicit return (no return-keyword).
   getSleepHours('monday')
   + getSleepHours('tuesday')
@@ -45,13 +43,14 @@ const getActualSleepHours = () => //no "{}" to make an implicit return (no retur
   + getSleepHours('saturday') 
 // console.log(getActualSleepHours());
 
+// 3 Get the ideal sleep hours that you prefer
 const getIdealSleepHours = () => {
   const idealHours = 8;
     return idealHours * 7;
 }
 // console.log(getIdealSleehours());
 
-// 3 Now it’s time to calculate sleep debt.
+// 4. Calculate the sleep debt, if any.
 const calculateSleepDebt = () => {
   const actualSleepHours = getActualSleepHours();
   const idealSleepHours = getIdealSleepHours();
@@ -65,6 +64,7 @@ const calculateSleepDebt = () => {
 }
 // console.log(calculateSleepDebt());
 
+// Run your program.
 calculateSleepDebt();
 
 
