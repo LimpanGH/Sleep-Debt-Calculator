@@ -45,7 +45,7 @@ const getActualSleepHours = () => //no "{}" to make an implicit return (no retur
 
 // 3 Get the ideal sleep hours that you prefer
 const getIdealSleepHours = () => {
-  const idealHours = 8;
+  const idealHours = 8;     // Set your ideal amount of ours here.
     return idealHours * 7;
 }
 // console.log(getIdealSleehours());
