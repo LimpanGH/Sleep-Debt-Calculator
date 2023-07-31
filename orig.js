@@ -1,11 +1,12 @@
-/* OBJECTIVE
-1. Calculate if you’re getting enough sleep each week using a sleep debt calculator.
-2. The program will determine the actual and ideal hours of sleep for each night of the last week.
-3. Finally, it will calculate, in hours, how far you are from your weekly sleep goal. */
+// OBJECTIVE
+// 1. Get actual sleep
+// 2. Define Ideal sleep
+// 3. Calculate debt, or surplus
 
 
-// 1. Determine how many hours of sleep you got each night of the week.
-const getSleepHours = (day) => {
+
+// 1. Actual sleep
+let getSleepHours = (day) => {
   switch (day) {
     case 'monday':
       return 8;
@@ -29,43 +30,47 @@ const getSleepHours = (day) => {
       return 8;
       break;
   }
-}
-//console.log(getSleepHours('friday'));
 
-// 2. Get the total sleep hours that you actually slept
-const getActualSleepHours = () => //no "{}" to make an implicit return (no return-keyword).
-  getSleepHours('monday')
-  + getSleepHours('tuesday')
-  + getSleepHours('wednesday')
-  + getSleepHours('thursday')
-  + getSleepHours('friday')
-  + getSleepHours('friday')
-  + getSleepHours('saturday') 
+}
+// console.log(getSleepHours('friday'));
+
+
+/* Version 1 of getActualSleepHours
+let getActualSleepHours = () => getSleepHours('monday') + getSleepHours('tuesday') + getSleepHours('wednesday') + getSleepHours('thursday') + getSleepHours('friday') + getSleepHours('saturday') + getSleepHours('sunday');
 // console.log(getActualSleepHours());
+*/
 
-// 3 Get the ideal sleep hours that you prefer
-const getIdealSleepHours = () => {
-  const idealHours = 8;     // Set your ideal amount of ours here.
-    return idealHours * 7;
+// Version 2 of getActualSleepHours
+let getActualSleepHours = () => 8+8+8+8+8+8+8;
+
+
+
+/* 2.1 Ideal sleep
+let getIdealSleepHours = (8) => {
+  let idealHours = 2.3;
+  return idealHours * 7;  
 }
-// console.log(getIdealSleehours());
+console.log(idealSleepHours());  */
 
-// 4. Calculate the sleep debt, if any.
-const calculateSleepDebt = () => {
-  const actualSleepHours = getActualSleepHours();
-  const idealSleepHours = getIdealSleepHours();
-    if (actualSleepHours === idealSleepHours) {
-      console.log('You are getting the perfect amount of sleep.');
-    } else if (actualSleepHours > idealSleepHours) {
-      console.log(`You are getting ${actualSleepHours - idealSleepHours} hours more of sleep than you need.`);
-    } else {
-      console.log(`You need to sleep ${idealSleepHours - actualSleepHours} hours more.`);
-    }
+// 2.2 Ideal sleep
+const getIdealSleepHours = (idealHours) => idealHours * 7;
+
+
+
+// 3. Calculate debt
+let calculateSleepDebt = () => {
+  let actualSleepHours = getActualSleepHours();
+  let idealSleepHours = getIdealSleepHours(7.2);    // calling the function with an argument for it to work with the alternative way in getIdealSleepHours and getActualSleepHours.
+  if (actualSleepHours === idealSleepHours) {
+    return 'You slept as many hours as you need.';
+  } else if (actualSleepHours > idealSleepHours) {
+    return (`You slept ${(actualSleepHours - idealSleepHours).toFixed(1)} hours more than you need.`);
+  } else if (actualSleepHours < idealSleepHours) {
+    return (`You slept ${(idealSleepHours - actualSleepHours).toFixed(1)} hours less than you need.`);
+  }
 }
-// console.log(calculateSleepDebt());
+ console.log(calculateSleepDebt());
 
-// Run your program.
-calculateSleepDebt();
 
 
 
